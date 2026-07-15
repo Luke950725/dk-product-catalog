@@ -56,13 +56,14 @@ body {
 .cover {
     width: 210mm; height: 297mm;
     display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
+    justify-content: flex-start; align-items: center; padding-top: 80px;
     page-break-after: always;
     margin: 0 auto;
 }
 .cover h1 { margin: 0; font-weight: 900; }
 .cover .subtitle { font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
 .cover .email { font-weight: 400; letter-spacing: 2px; }
+.cover .tagline { color: #94a3b8; font-size: 12px; margin-top: 120px; letter-spacing: 1px; position: relative; z-index: 1; font-style: italic; }
 .c-line { width: 80px; height: 3px; background: var(--accent2); margin: 25px auto; }
 
 /* === PAGE === */
@@ -493,6 +494,8 @@ body {
     <div class="c-line"></div>
     <div class="subtitle">Precision Forging &amp; Machining</div>
     <div class="email">LukeCnDk@outlook.com</div>
+    <div class="email" style="margin-top:8px;">MeloCnDk@outlook.com</div>
+    <div class="tagline">Provide the most time-saving and hassle-free procurement services.</div>
 </div>
 
 <!-- PAGES -->
