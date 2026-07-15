@@ -486,6 +486,98 @@ body {
     padding: 6px 10px;
     letter-spacing: 0.5px;
 }
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+  /* Page dimensions */
+  .cover, .page {
+    width: 100%; height: auto; min-height: auto;
+    padding: 16mm 8mm 12mm 8mm;
+  }
+  .cover { padding-top: 60px; padding-bottom: 40px; }
+  .cover h1 { font-size: 60px; letter-spacing: 8px; }
+  .cover .subtitle { font-size: 11px; letter-spacing: 3px; margin-top: 16px; }
+  .email-row { margin-top: 24px; gap: 16px; }
+  .email-row .email { font-size: 11px; }
+  .cover .tagline { font-size: 12px; margin-top: 40px; }
+  .page-header { font-size: 14px; letter-spacing: 1px; }
+  /* Vertical banner → stack on mobile */
+  .workshop-banner.vertical {
+    flex-direction: column;
+    height: auto;
+    gap: 6px;
+  }
+  .workshop-banner.vertical .banner-main {
+    height: 55vw;
+    min-height: 220px;
+    max-height: 380px;
+  }
+  .workshop-banner.vertical .banner-thumbs {
+    flex-direction: row;
+    width: 100%;
+    height: 26mm;
+    min-width: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding-right: 0;
+    padding-bottom: 4px;
+  }
+  .workshop-banner.vertical .banner-thumb {
+    width: 28mm;
+    height: auto;
+    min-width: 24mm;
+    min-height: auto;
+    flex: 0 0 auto;
+  }
+  /* Horizontal banner */
+  .workshop-banner:not(.vertical) { height: auto; }
+  .workshop-banner:not(.vertical) .banner-main { height: 55vw; min-height: 220px; max-height: 380px; }
+  .workshop-banner:not(.vertical) .banner-thumbs { height: 26mm; }
+  /* Grids */
+  .grid-4, .grid-6, .grid-8, .grid-12, .grid-16 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+  .equip-params { grid-template-columns: 1fr; }
+  .equip-others { grid-template-columns: repeat(3, 1fr); }
+  /* Magazine */
+  .mag-hero { flex-direction: column; gap: 8px; }
+  .mag-hero.reverse { flex-direction: column-reverse; }
+  .mag-hero-img { flex: none; height: 55vw; min-height: 200px; max-height: 380px; }
+  .mag-hero-text { flex: none; padding: 10px; }
+  .mag-hero-text h3 { font-size: 16px; }
+  .mag-hero-text p { font-size: 12px; }
+  .mag-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .mag-card img { height: 28vw; min-height: 80px; }
+  /* Spec cards */
+  .spec-img { max-height: 200px; }
+  .spec-body { padding: 8px 10px; }
+  .spec-title { font-size: 13px; }
+  .spec-table { font-size: 8px; }
+  /* Card images */
+  .card img { max-height: 120px; }
+  /* Footer */
+  .footer { font-size: 7px; padding-top: 6px; margin-top: 8px; }
+  /* Quality section */
+  .quality .card img { max-height: 300px; }
+  /* Hover preview - disable on touch */
+  .img-preview { display: none !important; }
+}
+@media (max-width: 480px) {
+  .cover h1 { font-size: 44px; letter-spacing: 5px; }
+  .cover { padding-top: 40px; }
+  .email-row .email { font-size: 10px; }
+  .cover .tagline { font-size: 10px; margin-top: 24px; }
+  .grid-4, .grid-6, .grid-8, .grid-12, .grid-16 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .equip-others { grid-template-columns: repeat(2, 1fr); }
+  .mag-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-header { font-size: 12px; }
+  .page { padding: 10mm 5mm 8mm 5mm; }
+  .workshop-banner.vertical .banner-thumb { width: 24mm; min-width: 20mm; }
+  .workshop-banner.vertical .banner-thumbs,
+  .workshop-banner:not(.vertical) .banner-thumbs { height: 22mm; }
+}
 </style>
 </head>
 <body>
@@ -1224,7 +1316,7 @@ body {
         var labelEl = banner.querySelector('.banner-label');
         var thumbs = banner.querySelectorAll('.banner-thumb');
         thumbs.forEach(function(thumb) {
-            thumb.addEventListener('mouseenter', function() {
+            function selectThumb() {
                 var src = this.getAttribute('data-src');
                 mainImg.style.opacity = '0';
                 setTimeout(function() {
@@ -1234,9 +1326,14 @@ body {
                 thumbs.forEach(function(t) { t.classList.remove('active'); });
                 this.classList.add('active');
                 if (labelEl) {
-                    labelEl.textContent = this.querySelector('span').textContent;
+                    var span = this.querySelector('span');
+                    if (span) labelEl.textContent = span.textContent;
                 }
-            });
+                // scroll thumb into view on mobile
+                this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            thumb.addEventListener('mouseenter', selectThumb);
+            thumb.addEventListener('click', selectThumb);
         });
     });
 })();
