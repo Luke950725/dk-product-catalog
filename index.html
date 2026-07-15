@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dk Product Showcase - 现代科技风 - Modern Tech</title>
+<style>
+
+:root {
+    --bg: #ffffff;
+    --text: #1c1917;
+    --accent: #1a3c5e;
+    --accent2: #c9a84c;
+    --card-bg: #faf9f6;
+    --border: #e7e5e4;
+    --title-color: #1a3c5e;
+}
+.cover { background: linear-gradient(160deg, #141413 0%, #1a3c5e 60%, #1e4d7a 100%); position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 60%); }
+.cover h1 { font-size: 100px; letter-spacing: 14px; color: #ffffff; font-weight: 200; position: relative; z-index: 1; }
+.cover .subtitle { color: #94a3b8; font-size: 13px; margin-top: 24px; letter-spacing: 5px; position: relative; z-index: 1; }
+.cover .email { color: #c9a84c; font-size: 14px; margin-top: 36px; letter-spacing: 3px; position: relative; z-index: 1; }
+.c-line { width: 40px; height: 1px; background: #c9a84c; margin: 28px auto; position: relative; z-index: 1; }
+.page { padding: 22mm 20mm 20mm 20mm; }
+.page-header { font-size: 14px; font-weight: 400; letter-spacing: 3px; color: #1a3c5e; border-bottom: 2px solid #c9a84c; padding-bottom: 10px; margin-bottom: 18px; }
+.card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 2px; }
+.card-label { color: #78716c; font-size: 7px; font-weight: 400; letter-spacing: 0.3px; padding: 5px 6px; }
+.card img { background: #faf9f6; }
+.footer { color: #94a3b8; border-top: 1px solid #e7e5e4; font-size: 7px; letter-spacing: 2px; padding-top: 12px; margin-top: 14px; }
+.spec-card { border: 1px solid #e7e5e4; border-radius: 2px; background: #ffffff; }
+.spec-title { font-size: 11px; font-weight: 600; color: #1a3c5e; letter-spacing: 0.5px; }
+.spec-brand { font-size: 9px; font-weight: 400; color: #78716c; }
+.spec-qty { font-size: 7.5px; color: #c9a84c; letter-spacing: 1.5px; margin-bottom: 8px; }
+.spec-table td { padding: 2.5px 4px; }
+.spec-table .sc-k { color: #78716c; font-weight: 400; font-size: 7px; }
+.spec-table .sc-v { color: #1c1917; font-weight: 600; font-size: 7.5px; }
+.spec-table .sc-v2 { color: #a8a29e; font-size: 6.5px; }
+.spec-table tr { border-bottom: 1px solid #f0eeea; }
+.spec-body { padding: 10px 14px; }
+.equip-others { border-top: 1px solid #f0eeea; padding-top: 8px; margin-top: 6px; }
+
+@page {
+    size: A4;
+    margin: 0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* === COVER === */
+.cover {
+    width: 210mm; height: 297mm;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    page-break-after: always;
+    margin: 0 auto;
+}
+.cover h1 { margin: 0; font-weight: 900; }
+.cover .subtitle { font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
+.cover .email { font-weight: 400; letter-spacing: 2px; }
+.c-line { width: 80px; height: 3px; background: var(--accent2); margin: 25px auto; }
+
+/* === PAGE === */
+.page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 auto;
+    padding: 20mm 18mm 18mm 18mm;
+    page-break-after: always;
+    background: var(--bg);
+}
+.page-header {
+    font-size: 20px; font-weight: 700;
+    padding-bottom: 8px; margin-bottom: 16px;
+    text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* === GRID === */
+.grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.grid-8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.grid-12 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.grid-16 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; }
+
+/* === CARD === */
+.card {
+    border-radius: 4px; overflow: hidden;
+    display: flex; flex-direction: column;
+}
+.card img {
+    width: 100%; height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    display: block;
+    background: #f5f5f5;
+}
+.card-label {
+    font-size: 7.5px; font-weight: 500; text-align: center;
+    padding: 3px 4px; line-height: 1.2;
+    word-break: break-word;
+}
+
+/* Cover page fixes for dark themes */
+.cover-dark h1 { color: #ffffff !important; }
+.cover-dark .subtitle { color: #94a3b8 !important; }
+.cover-dark .email { color: #06b6d4 !important; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 12px; padding-top: 8px;
+    font-size: 8px; text-align: center;
+    letter-spacing: 1px;
+}
+
+/* === PRINT === */
+@media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; page-break-after: always; }
+    .cover { page-break-after: always; }
+    .card img { max-height: 140px; }
+    .equip-others .card img { max-height: 100px; }
+}
+
+/* Parameter / Quality sections — larger images */
+.quality .card img { max-height: 520px; }
+.quality .grid-4 { grid-template-columns: 1fr; gap: 16px; }
+.quality .card-label { font-size: 10px; font-weight: 600; }
+@media print {
+    .quality .card img { max-height: 480px; }
+}
+
+/* === TWO-TIER EQUIPMENT LAYOUT === */
+.equip-params {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 10px; margin-bottom: 10px;
+}
+/* Spec card = parameter table card */
+.spec-card {
+    border-radius: 5px;
+    padding: 0;
+    border: 1.5px solid var(--border);
+    background: var(--card-bg);
+    overflow: hidden;
+}
+.spec-img {
+    width: 100%; height: auto;
+    max-height: 160px;
+    object-fit: cover;
+    display: block;
+}
+.spec-body {
+    padding: 10px 14px 10px 14px;
+}
+.spec-title {
+    font-size: 13px; font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+.spec-brand {
+    font-size: 10px; font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1px;
+}
+.spec-qty {
+    font-size: 8px; color: var(--accent2);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+.spec-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 8px;
+}
+.spec-table tr {
+    border-bottom: 1px solid var(--border);
+}
+.spec-table tr:last-child {
+    border-bottom: none;
+}
+.spec-table td {
+    padding: 2.5px 4px; vertical-align: middle;
+}
+.spec-table .sc-k {
+    color: var(--text); font-weight: 500;
+    white-space: nowrap;
+}
+.spec-table .sc-v {
+    color: var(--accent); font-weight: 700;
+    text-align: right; white-space: nowrap;
+}
+.spec-table .sc-v2 {
+    color: #888; font-size: 7px;
+    text-align: right; white-space: nowrap;
+}
+.equip-others {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+.equip-others .card img {
+    max-height: 110px;
+}
+.equip-others .card-label {
+    font-size: 7px;
+}
+
+/* === WORKSHOP BANNER GALLERY === */
+.workshop-banner {
+    display: flex; flex-direction: column;
+    height: 222mm;
+    gap: 8px;
+}
+.banner-main {
+    flex: 1;
+    min-height: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #0f172a;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+.banner-main::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.12), transparent);
+    pointer-events: none;
+}
+.banner-main img {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    object-fit: contain;
+    transition: opacity 0.35s ease;
+    display: block;
+}
+.banner-label {
+    text-align: center;
+    padding: 8px 12px 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+}
+.banner-thumbs {
+    display: flex;
+    gap: 6px;
+    height: 42mm;
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+}
+.banner-thumbs::-webkit-scrollbar {
+    height: 4px;
+}
+.banner-thumbs::-webkit-scrollbar-track {
+    background: transparent;
+}
+.banner-thumbs::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+.banner-thumb {
+    flex: 0 0 auto;
+    width: 34mm;
+    min-width: 28mm;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 3px solid var(--border);
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+}
+.banner-thumb:hover,
+.banner-thumb.active {
+    border-color: var(--accent2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(201,168,76,0.3);
+}
+.banner-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.banner-thumb span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.25) 60%, transparent);
+    color: #fff;
+    font-size: 7px;
+    padding: 7px 4px 3px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+@media print {
+    .workshop-banner { height: auto; }
+    .banner-main { height: 160mm; }
+    .banner-main::after { display: none; }
+    .banner-thumbs { height: 35mm; }
+    .banner-thumb { border-width: 2px; }
+    .banner-thumb:hover,
+    .banner-thumb.active {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--border);
+    }
+}
+
+/* === VERTICAL BANNER (side-by-side) === */
+.workshop-banner:not(.vertical) .banner-thumb { flex: 1; width: auto; min-width: auto; }
+.workshop-banner.vertical {
+    flex-direction: row;
+    height: 222mm;
+    gap: 8px;
+}
+.workshop-banner.vertical .banner-main {
+    flex: 1;
+    min-width: 0;
+    background: #ffffff;
+}
+.workshop-banner.vertical .banner-thumbs {
+    flex-direction: column;
+    width: 40mm;
+    min-width: 36mm;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-shrink: 0;
+    gap: 5px;
+    padding-bottom: 0;
+    padding-right: 4px;
+}
+.workshop-banner.vertical .banner-thumbs::-webkit-scrollbar {
+    width: 4px;
+    height: auto;
+}
+.workshop-banner.vertical .banner-thumbs::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+.workshop-banner.vertical .banner-thumb {
+    width: auto;
+    min-width: auto;
+    height: 32mm;
+    min-height: 26mm;
+}
+@media print {
+    .workshop-banner.vertical { height: auto; flex-direction: row; }
+    .workshop-banner.vertical .banner-main { height: 160mm; }
+    .workshop-banner.vertical .banner-thumbs { width: 35mm; height: auto; overflow: visible; }
+    .workshop-banner.vertical .banner-thumb { height: 28mm; }
+}
+
+/* === MAGAZINE PRODUCT LAYOUT === */
+.mag-hero {
+    display: flex;
+    align-items: stretch;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    height: 40mm;
+}
+.mag-hero.reverse { flex-direction: row-reverse; }
+.mag-hero-img {
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f3f0;
+    overflow: hidden;
+}
+.mag-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+}
+.mag-hero-text {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 18px;
+}
+.mag-hero-text h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 4px 0;
+    letter-spacing: 0.5px;
+}
+.mag-hero-text p {
+    font-size: 8px;
+    color: var(--text);
+    opacity: 0.6;
+    margin: 0;
+    line-height: 1.5;
+}
+.mag-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+.mag-card {
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28mm;
+}
+.mag-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 3px;
+    background: #faf9f6;
+}
+.mag-card span {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+    color: #fff;
+    font-size: 7px;
+    padding: 5px 4px 3px;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+.mag-gap { height: 5px; }
+/* hover preview */
+.img-preview {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    width: 400px;
+    border-radius: 6px;
+    border: 2px solid var(--accent2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    background: #fff;
+    display: none;
+    overflow: hidden;
+}
+.img-preview img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    padding: 6px;
+    display: block;
+}
+.img-preview .pv-label {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    padding: 6px 10px;
+    letter-spacing: 0.5px;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+    <h1>Dk</h1>
+    <div class="c-line"></div>
+    <div class="subtitle">Precision Forging &amp; Machining</div>
+    <div class="email">LukeCnDk@outlook.com</div>
+</div>
+
+<!-- PAGES -->
+
+<div class="page">
+    <div class="page-header">Workshop Environment / 车间环境</div>
+    <div class="workshop-banner">
+        <div class="banner-main">
+            <img id="bannerDisplay" src="images/车间/车间A.jpg" alt="Workshop" loading="lazy">
+        </div>
+        <div class="banner-thumbs">
+            <div class="banner-thumb active" data-src="images/车间/车间A.jpg">
+                <img src="images/车间/车间A.jpg" alt="Workshop A" loading="lazy">
+                <span>Workshop A</span>
+            </div>
+            <div class="banner-thumb" data-src="images/车间/车间B.jpg">
+                <img src="images/车间/车间B.jpg" alt="Workshop B" loading="lazy">
+                <span>Workshop B</span>
+            </div>
+            <div class="banner-thumb" data-src="images/车间/车间C.jpg">
+                <img src="images/车间/车间C.jpg" alt="Workshop C" loading="lazy">
+                <span>Workshop C</span>
+            </div>
+            <div class="banner-thumb" data-src="images/车间/车间D.jpg">
+                <img src="images/车间/车间D.jpg" alt="Workshop D" loading="lazy">
+                <span>Workshop D</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page equip-page">
+    <div class="page-header">Main Machining Equipment / 主要加工设备 (1/2)</div>
+    <div class="equip-params">
+        <div class="spec-card">
+            <img class="spec-img" src="images/主要设备/五轴复合加工中心 Five axis composite machining center.jpg" alt="" loading="lazy">
+            <div class="spec-body">
+            <div class="spec-title">5-Axis Composite Machining Center</div>
+            <div class="spec-brand">Mazak INTEGREX i-800V</div>
+            <div class="spec-qty">Qty: 1 set</div>
+            <table class="spec-table"><tr><td class="sc-k">Max Machining Diameter</td><td class="sc-v">&#8709;1700 mm</td><td class="sc-v2">66.93 in</td></tr><tr><td class="sc-k">Max Machining Length</td><td class="sc-v">1665 mm</td><td class="sc-v2">65.55 in</td></tr><tr><td class="sc-k">Turning Spindle Max Speed</td><td class="sc-v">500 rpm</td></tr><tr><td class="sc-k">Milling Spindle B-axis Stroke</td><td class="sc-v">150&deg;</td></tr><tr><td class="sc-k">Tool Magazine Capacity</td><td class="sc-v">43 tools</td></tr><tr><td class="sc-k">Milling Spindle Max Speed</td><td class="sc-v">10,000 rpm</td></tr><tr><td class="sc-k">Stroke (X / Y / Z)</td><td class="sc-v">1700 / 1500 / 1150 mm</td><td class="sc-v2">66.93 / 59.06 / 45.28 in</td></tr>
+            </table>
+            </div>
+        </div>
+        <div class="spec-card">
+            <img class="spec-img" src="images/主要设备/龙门式五面体加工中心 Gantry pentahedron machining center.jpg" alt="" loading="lazy">
+            <div class="spec-body">
+            <div class="spec-title">Gantry Pentahedron Machining Center</div>
+            <div class="spec-brand">OKUMA MCR-A5CII20</div>
+            <div class="spec-qty">Qty: 1 set</div>
+            <table class="spec-table"><tr><td class="sc-k">X-axis Travel (Table F/R)</td><td class="sc-v">3,200 mm</td></tr><tr><td class="sc-k">Y-axis Travel (Spindle L/R)</td><td class="sc-v">2,600 mm</td></tr><tr><td class="sc-k">Z-axis Travel (Ram U/D)</td><td class="sc-v">800 mm</td></tr><tr><td class="sc-k">W-axis Travel (Cross Rail Lift)</td><td class="sc-v">800 mm</td></tr><tr><td class="sc-k">Table Working Surface</td><td class="sc-v">1,500 &times; 3,000 mm</td></tr><tr><td class="sc-k">Max Table Load Capacity</td><td class="sc-v">12,000 kg</td></tr><tr><td class="sc-k">Rapid Feed Rate (X/Y/Z)</td><td class="sc-v">30 / 32 / 20 m/min</td></tr><tr><td class="sc-k">Cutting Feed Rate</td><td class="sc-v">1&ndash;10,000 mm/min</td></tr><tr><td class="sc-k">Spindle Speed</td><td class="sc-v">4,000 rpm</td></tr><tr><td class="sc-k">Spindle Taper</td><td class="sc-v">7/24 Taper No.50</td></tr><tr><td class="sc-k">Spindle Bearing ID</td><td class="sc-v">&phi;100 mm</td></tr>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="equip-others">
+        <div class="card">
+            <img src="images/主要设备/龙门铣削中心 Gantry milling center.jpg" alt="Gantry Milling Center" loading="lazy">
+            <div class="card-label">Gantry Milling Center</div>
+        </div>
+        <div class="card">
+            <img src="images/主要设备/龙门加工中心 Gantry Machining Center.jpg" alt="Gantry Machining Center" loading="lazy">
+            <div class="card-label">Gantry Machining Center</div>
+        </div>
+        <div class="card">
+            <img src="images/主要设备/立式车铣复合中心 Vertical Turning and Milling.jpg" alt="Vertical Turning & Milling Center" loading="lazy">
+            <div class="card-label">Vertical Turning & Milling Center</div>
+        </div>
+        <div class="card">
+            <img src="images/主要设备/卧式加工中心 Horizontal machining center.jpg" alt="Horizontal Machining Center" loading="lazy">
+            <div class="card-label">Horizontal Machining Center</div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page equip-page">
+    <div class="page-header">Main Machining Equipment / 主要加工设备 (2/2)</div>
+    <div class="equip-params">
+        <div class="spec-card">
+            <img class="spec-img" src="images/主要设备/德国卧式加工中心 German Horizotal Machining Center.jpg" alt="" loading="lazy">
+            <div class="spec-body">
+            <div class="spec-title">German Horizontal Machining Center</div>
+            <div class="spec-brand">HULLER HILLER NBH6</div>
+            <div class="spec-qty">Qty: 1 set</div>
+            <table class="spec-table"><tr><td class="sc-k">Main Motor Power</td><td class="sc-v">66 kW</td></tr><tr><td class="sc-k">Spindle Speed Range</td><td class="sc-v">8,000 rpm</td></tr><tr><td class="sc-k">Processing Range (X/Y/Z)</td><td class="sc-v">800 / 800 / 800 mm</td></tr><tr><td class="sc-k">Machining Area Turning Dia.</td><td class="sc-v">&phi;900 mm</td></tr><tr><td class="sc-k">Repeat Positioning Accuracy</td><td class="sc-v">0.0023 mm (DIN ISO 230-2)</td></tr>
+            </table>
+            </div>
+        </div>
+        <div class="spec-card">
+            <img class="spec-img" src="images/主要设备/重型立式加工中心 Powerful vertical machining center.jpg" alt="" loading="lazy">
+            <div class="spec-body">
+            <div class="spec-title">Powerful Vertical Machining Center</div>
+            <div class="spec-brand">WELE CV-1060</div>
+            <div class="spec-qty">Qty: 1 set</div>
+            <table class="spec-table"><tr><td class="sc-k">Stroke (X / Y / Z)</td><td class="sc-v">1,020 / 600 / 600 mm</td></tr><tr><td class="sc-k">Workbench Size (X&times;Y)</td><td class="sc-v">1,150 &times; 600 mm</td></tr><tr><td class="sc-k">Spindle Speed</td><td class="sc-v">10,000 rpm</td></tr><tr><td class="sc-k">Positioning Accuracy (JIS B6338)</td><td class="sc-v">&plusmn;0.003 mm</td></tr><tr><td class="sc-k">Positioning Accuracy (VDI/DGQ3441)</td><td class="sc-v">P &le; 0.012 / full length</td></tr><tr><td class="sc-k">Repeat Pos. Accuracy</td><td class="sc-v">&plusmn;0.002 mm / Ps &le; 0.006</td></tr>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="equip-others">
+        <div class="card">
+            <img src="images/主要设备/立式综合加工中心 Vertical integrated machining center.jpg" alt="Vertical Integrated Machining Center" loading="lazy">
+            <div class="card-label">Vertical Integrated Machining Center</div>
+        </div>
+        <div class="card">
+            <img src="images/主要设备/高速立式加工中心 High speed vertical machining center.jpg" alt="High-Speed Vertical Machining Center" loading="lazy">
+            <div class="card-label">High-Speed Vertical Machining Center</div>
+        </div>
+        <div class="card">
+            <img src="images/主要设备/高速高精数控车床 High speed and high precision CNC lathe.jpg" alt="High-Speed Precision CNC Lathe" loading="lazy">
+            <div class="card-label">High-Speed Precision CNC Lathe</div>
+        </div>
+        <div class="card">
+            <img src="images/主要设备/卧式数控车床 Horizontal CNC lathe.jpg" alt="Horizontal CNC Lathe" loading="lazy">
+            <div class="card-label">Horizontal CNC Lathe</div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Forging Equipment / 锻造设备</div>
+    <div class="workshop-banner vertical">
+        <div class="banner-main">
+            <img src="images/锻造设备/电动螺旋压力机.jpg" alt="Forging Equipment" loading="lazy">
+            <div class="banner-label">Electric Screw Press</div>
+        </div>
+        <div class="banner-thumbs">
+            <div class="banner-thumb active" data-src="images/锻造设备/电动螺旋压力机.jpg">
+                <img src="images/锻造设备/电动螺旋压力机.jpg" alt="Electric Screw Press" loading="lazy">
+                <span>Electric Screw Press</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/液压锻锤.jpg">
+                <img src="images/锻造设备/液压锻锤.jpg" alt="Hydraulic Forging Hammer" loading="lazy">
+                <span>Hydraulic Forging Hammer</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/油压机.jpg">
+                <img src="images/锻造设备/油压机.jpg" alt="Hydraulic Press" loading="lazy">
+                <span>Hydraulic Press</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/冲床.jpg">
+                <img src="images/锻造设备/冲床.jpg" alt="Punch Press" loading="lazy">
+                <span>Punch Press</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/中频炉.jpg">
+                <img src="images/锻造设备/中频炉.jpg" alt="Medium Frequency Furnace" loading="lazy">
+                <span>Medium Frequency Furnace</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/预镦机.jpg">
+                <img src="images/锻造设备/预镦机.jpg" alt="Pre-Upsetting Machine" loading="lazy">
+                <span>Pre-Upsetting Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/契横轧机.jpg">
+                <img src="images/锻造设备/契横轧机.jpg" alt="Cross Wedge Rolling Mill" loading="lazy">
+                <span>Cross Wedge Rolling Mill</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/圆锯机.jpg">
+                <img src="images/锻造设备/圆锯机.jpg" alt="Circular Saw" loading="lazy">
+                <span>Circular Saw</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/安川机器人.jpg">
+                <img src="images/锻造设备/安川机器人.jpg" alt="Yaskawa Robot" loading="lazy">
+                <span>Yaskawa Robot</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/摆臂机器人.jpg">
+                <img src="images/锻造设备/摆臂机器人.jpg" alt="Swing Arm Robot" loading="lazy">
+                <span>Swing Arm Robot</span>
+            </div>
+            <div class="banner-thumb" data-src="images/锻造设备/抛丸机.jpg">
+                <img src="images/锻造设备/抛丸机.jpg" alt="Shot Blasting Machine" loading="lazy">
+                <span>Shot Blasting Machine</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Production Equipment / 生产设备</div>
+    <div class="workshop-banner vertical">
+        <div class="banner-main">
+            <img src="images/生产设备/焊接机器人 Welding robots.jpg" alt="Production Equipment" loading="lazy">
+            <div class="banner-label">Welding Robots</div>
+        </div>
+        <div class="banner-thumbs">
+            <div class="banner-thumb active" data-src="images/生产设备/焊接机器人 Welding robots.jpg">
+                <img src="images/生产设备/焊接机器人 Welding robots.jpg" alt="Welding Robots" loading="lazy">
+                <span>Welding Robots</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/柔性化制造系统(FMS) Flexible Manufacturing System (FMS).jpg">
+                <img src="images/生产设备/柔性化制造系统(FMS) Flexible Manufacturing System (FMS).jpg" alt="Flexible Manufacturing System" loading="lazy">
+                <span>Flexible Manufacturing System</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/阀体自动产线 Automatic Production Line of Valve Body.jpg">
+                <img src="images/生产设备/阀体自动产线 Automatic Production Line of Valve Body.jpg" alt="Auto Valve Body Line" loading="lazy">
+                <span>Auto Valve Body Line</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/阀杆精磨自动单元 Automatic Valve Rod Grinding Unit.jpg">
+                <img src="images/生产设备/阀杆精磨自动单元 Automatic Valve Rod Grinding Unit.jpg" alt="Valve Rod Grinding" loading="lazy">
+                <span>Valve Rod Grinding Unit</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/静电喷涂生产线 Electrostatic spraying production line.jpg">
+                <img src="images/生产设备/静电喷涂生产线 Electrostatic spraying production line.jpg" alt="Electrostatic Spraying" loading="lazy">
+                <span>Electrostatic Spraying Line</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/表面前处理生产线 Surface pretreatment production line.jpg">
+                <img src="images/生产设备/表面前处理生产线 Surface pretreatment production line.jpg" alt="Surface Pretreatment" loading="lazy">
+                <span>Surface Pretreatment Line</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/进口四轴立式加工中心 Imported Four-axis Vertical Machining Center.jpg">
+                <img src="images/生产设备/进口四轴立式加工中心 Imported Four-axis Vertical Machining Center.jpg" alt="4-Axis VMC" loading="lazy">
+                <span>4-Axis Vertical MC</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/全自动钢管下料机 Automatic steel pipe cutting machine.jpg">
+                <img src="images/生产设备/全自动钢管下料机 Automatic steel pipe cutting machine.jpg" alt="Pipe Cutting" loading="lazy">
+                <span>Auto Pipe Cutting Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/液压阀多功能模拟试验台 Multi-function Simulation Test Bench.jpg">
+                <img src="images/生产设备/液压阀多功能模拟试验台 Multi-function Simulation Test Bench.jpg" alt="Simulation Test Bench" loading="lazy">
+                <span>Simulation Test Bench</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/精密无心磨床 Precision centerless grinder.jpg">
+                <img src="images/生产设备/精密无心磨床 Precision centerless grinder.jpg" alt="Centerless Grinder" loading="lazy">
+                <span>Centerless Grinder</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/综合试验台 Comprehensive test bench.jpg">
+                <img src="images/生产设备/综合试验台 Comprehensive test bench.jpg" alt="Comprehensive Test Bench" loading="lazy">
+                <span>Comprehensive Test Bench</span>
+            </div>
+            <div class="banner-thumb" data-src="images/生产设备/自动激光打标机 Automatic laser marking machine.jpg">
+                <img src="images/生产设备/自动激光打标机 Automatic laser marking machine.jpg" alt="Laser Marking" loading="lazy">
+                <span>Laser Marking Machine</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Machining Equipment / 机加工设备</div>
+    <div class="workshop-banner vertical">
+        <div class="banner-main">
+            <img src="images/机加工设备/数控机床.jpg" alt="Machining Equipment" loading="lazy">
+            <div class="banner-label">CNC Machine</div>
+        </div>
+        <div class="banner-thumbs">
+            <div class="banner-thumb active" data-src="images/机加工设备/数控机床.jpg">
+                <img src="images/机加工设备/数控机床.jpg" alt="CNC Machine" loading="lazy">
+                <span>CNC Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/加工中心.jpg">
+                <img src="images/机加工设备/加工中心.jpg" alt="Machining Center" loading="lazy">
+                <span>Machining Center</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/滚齿机.jpg">
+                <img src="images/机加工设备/滚齿机.jpg" alt="Gear Hobbing" loading="lazy">
+                <span>Gear Hobbing Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/插齿机.jpg">
+                <img src="images/机加工设备/插齿机.jpg" alt="Gear Shaping" loading="lazy">
+                <span>Gear Shaping Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/剃齿机.jpg">
+                <img src="images/机加工设备/剃齿机.jpg" alt="Gear Shaving" loading="lazy">
+                <span>Gear Shaving Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/外圆磨床.jpg">
+                <img src="images/机加工设备/外圆磨床.jpg" alt="Cylindrical Grinder" loading="lazy">
+                <span>Cylindrical Grinder</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/内圆磨床.jpg">
+                <img src="images/机加工设备/内圆磨床.jpg" alt="Internal Grinder" loading="lazy">
+                <span>Internal Grinder</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/平面磨床.jpg">
+                <img src="images/机加工设备/平面磨床.jpg" alt="Surface Grinder" loading="lazy">
+                <span>Surface Grinder</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/珩磨机.jpg">
+                <img src="images/机加工设备/珩磨机.jpg" alt="Honing Machine" loading="lazy">
+                <span>Honing Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/拉床.jpg">
+                <img src="images/机加工设备/拉床.jpg" alt="Broaching Machine" loading="lazy">
+                <span>Broaching Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/线切割.jpg">
+                <img src="images/机加工设备/线切割.jpg" alt="Wire EDM" loading="lazy">
+                <span>Wire EDM</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/深孔钻.jpg">
+                <img src="images/机加工设备/深孔钻.jpg" alt="Deep Hole Drilling" loading="lazy">
+                <span>Deep Hole Drilling</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/辊轧机.jpg">
+                <img src="images/机加工设备/辊轧机.jpg" alt="Rolling Machine" loading="lazy">
+                <span>Rolling Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/校直机.jpg">
+                <img src="images/机加工设备/校直机.jpg" alt="Straightening Machine" loading="lazy">
+                <span>Straightening Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/倒棱机.jpg">
+                <img src="images/机加工设备/倒棱机.jpg" alt="Chamfering Machine" loading="lazy">
+                <span>Chamfering Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/攻丝机.jpg">
+                <img src="images/机加工设备/攻丝机.jpg" alt="Tapping Machine" loading="lazy">
+                <span>Tapping Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/机加工设备/铣端面打中心孔机.jpg">
+                <img src="images/机加工设备/铣端面打中心孔机.jpg" alt="Facing & Centering" loading="lazy">
+                <span>Facing &amp; Centering Machine</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Marine Products / 船用产品 (1/2)  —  Hydraulic Systems & Components</div>
+    <div class="mag-hero">
+        <div class="mag-hero-img">
+            <img src="images/1-船用 Marine/主营产品/法兰A FLANGE.jpg" alt="Flange" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Flange</h3>
+            <p>Precision-forged carbon &amp; alloy steel flanges for marine hydraulic systems, API / EN 1092 compliant</p>
+        </div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-grid">
+        <div class="mag-card"><img src="images/1-船用 Marine/主营产品/阀块A BLOCK.jpg" alt="Valve Block A" loading="lazy"><span>Valve Block A</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/主营产品/阀块B BLOCK.jpg" alt="Valve Block B" loading="lazy"><span>Valve Block B</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/主营产品/五金件A hardware parts.jpg" alt="Hardware A" loading="lazy"><span>Hardware A</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/主营产品/五金件B hardware parts.jpg" alt="Hardware B" loading="lazy"><span>Hardware B</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/主营产品/接头 FITTING.jpg" alt="Fittings" loading="lazy"><span>Fittings</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/主营产品/其它非标产品 other non-standard parts.jpg" alt="Non-Standard" loading="lazy"><span>Non-Standard</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/Hydraulic Braided Hose/Hydraulic Braided Hose A.jpg" alt="Braided Hose A" loading="lazy"><span>Braided Hose A</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/Hydraulic Braided Hose/Hydraulic Braided Hose B.jpg" alt="Braided Hose B" loading="lazy"><span>Braided Hose B</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/Hydraulic Braided Hose/Hydraulic Braided Hose C.jpg" alt="Braided Hose C" loading="lazy"><span>Braided Hose C</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/Hydraulic Braided Hose/Hydraulic Braided Hose D.jpg" alt="Braided Hose D" loading="lazy"><span>Braided Hose D</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/Hydraulic Braided Hose/Hydraulic Braided Hose E.jpg" alt="Braided Hose E" loading="lazy"><span>Braided Hose E</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/Hydraulic Braided Hose/Hydraulic Braided Hose F.jpg" alt="Braided Hose F" loading="lazy"><span>Braided Hose F</span></div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-hero reverse">
+        <div class="mag-hero-img">
+            <img src="images/1-船用 Marine/Hydraulic Braided Hose/Hydraulic Braided Hose G.jpg" alt="Braided Hose G" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Braided Hose G</h3>
+            <p>High-pressure hydraulic braided hose assembly, SAE 100R2 / EN 853 certified, wire-reinforced</p>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Marine Products / 船用产品 (2/2)  —  Pipes & Fittings</div>
+    <div class="mag-hero">
+        <div class="mag-hero-img">
+            <img src="images/1-船用 Marine/PIPE/PIPE A.jpg" alt="Pipe A" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Pipe A</h3>
+            <p>Precision-formed pipe components for marine fluid systems</p>
+        </div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-grid">
+        <div class="mag-card"><img src="images/1-船用 Marine/PIPE/PIPE B.jpg" alt="Pipe B" loading="lazy"><span>Pipe B</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/PIPE/PIPE C.jpg" alt="Pipe C" loading="lazy"><span>Pipe C</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/PIPE/PIPE D.jpg" alt="Pipe D" loading="lazy"><span>Pipe D</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/PIPE/PIPE E.jpg" alt="Pipe E" loading="lazy"><span>Pipe E</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/PIPE/PIPE F.jpg" alt="Pipe F" loading="lazy"><span>Pipe F</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/Pipe Connector/Pipe Connector.jpg" alt="Pipe Connector" loading="lazy"><span>Pipe Connector</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/FITTING/FITTING A.jpg" alt="Fitting A" loading="lazy"><span>Fitting A</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/FITTING/FITTING B.jpg" alt="Fitting B" loading="lazy"><span>Fitting B</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/FITTING/FITTING C.jpg" alt="Fitting C" loading="lazy"><span>Fitting C</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/FITTING/T FITTING.jpg" alt="T-Fitting" loading="lazy"><span>T-Fitting</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/接头/FITTING A.jpg" alt="Fitting A" loading="lazy"><span>Fitting A</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/接头/FITTING B.jpg" alt="Fitting B" loading="lazy"><span>Fitting B</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/接头/FITTING C.jpg" alt="Fitting C" loading="lazy"><span>Fitting C</span></div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-hero reverse">
+        <div class="mag-hero-img">
+            <img src="images/1-船用 Marine/接头/FITTING D.jpg" alt="Fitting D" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Fitting D</h3>
+            <p>Custom hydraulic fittings, multi-standard compliant</p>
+        </div>
+    </div>
+<div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Construction Machinery Parts / 工用机械零部件 (1/2)  —  Joints, Pins & Hubs</div>
+    <div class="mag-hero">
+        <div class="mag-hero-img">
+            <img src="images/2-工用机械 Construction/Ball Joint/Ball Joint.jpg" alt="Ball Joint" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Ball Joint</h3>
+            <p>Forged ball joints for construction equipment, heat-treated</p>
+        </div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-grid">
+        <div class="mag-card"><img src="images/2-工用机械 Construction/PIN/PIN A.jpg" alt="Pin A" loading="lazy"><span>Pin A</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/PIN/Pin B.jpg" alt="Pin B" loading="lazy"><span>Pin B</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Pin2/Pin A.jpg" alt="Pin C" loading="lazy"><span>Pin C</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Pin2/Pin B.jpg" alt="Pin D" loading="lazy"><span>Pin D</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Load Bearing Axle Pin/0196607cd4b9e082575d4081346f34b9.jpg" alt="Load Bearing Axle Pin" loading="lazy"><span>Load Bearing Axle Pin</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Bushing/Bushing.jpg" alt="Bushing" loading="lazy"><span>Bushing</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Bushing/Copper Bushing.jpg" alt="Copper Bushing" loading="lazy"><span>Copper Bushing</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/HUB/HUB A.jpg" alt="Hub A" loading="lazy"><span>Hub A</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/HUB/HUB B.jpg" alt="Hub B" loading="lazy"><span>Hub B</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/HUB/Curved Coupling Hub.jpg" alt="Curved Coupling Hub" loading="lazy"><span>Curved Coupling Hub</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Load Hub/Load Hub.jpg" alt="Load Hub" loading="lazy"><span>Load Hub</span></div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-hero reverse">
+        <div class="mag-hero-img">
+            <img src="images/2-工用机械 Construction/Load Rim/Load Rim.jpg" alt="Load Rim" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Load Rim</h3>
+            <p>Forged wheel rim, high fatigue resistance</p>
+        </div>
+    </div>
+<div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Construction Machinery Parts / 工用机械零部件 (2/2)  —  Gears, Yokes & Structural</div>
+    <div class="mag-hero">
+        <div class="mag-hero-img">
+            <img src="images/2-工用机械 Construction/GEAR/GEAR A.jpg" alt="Gear A" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Gear A</h3>
+            <p>Precision-cut gears, hobbing & shaving finished</p>
+        </div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-grid">
+        <div class="mag-card"><img src="images/2-工用机械 Construction/GEAR/GEAR B.jpg" alt="Gear B" loading="lazy"><span>Gear B</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/GEAR/GEAR C.jpg" alt="Gear C" loading="lazy"><span>Gear C</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/GEAR/GEAR D.jpg" alt="Gear D" loading="lazy"><span>Gear D</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/GEAR/GEAR E.jpg" alt="Gear E" loading="lazy"><span>Gear E</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Sprocket/Sprocket.jpg" alt="Sprocket" loading="lazy"><span>Sprocket</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/U-Joint Assy/U-Joint Assy.jpg" alt="U-Joint Assy" loading="lazy"><span>U-Joint Assy</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Yoke/YOKE A.jpg" alt="Yoke" loading="lazy"><span>Yoke</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Upper Yoke/Upper Yoke.jpg" alt="Upper Yoke" loading="lazy"><span>Upper Yoke</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Upper Yoke/Lower Bracket.jpg" alt="Lower Bracket" loading="lazy"><span>Lower Bracket</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Idler Yoke/Idler Yoke.jpg" alt="Idler Yoke" loading="lazy"><span>Idler Yoke</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Swing Shaft/Swing Shaft.jpg" alt="Swing Shaft" loading="lazy"><span>Swing Shaft</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/BRACKET/BRACKET A.jpg" alt="Bracket A" loading="lazy"><span>Bracket A</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/BRACKET/BRACKET B.jpg" alt="Bracket B" loading="lazy"><span>Bracket B</span></div>
+        <div class="mag-card"><img src="images/2-工用机械 Construction/Welded Sheet Metal/Welded Sheet Metal.jpg" alt="Welded Sheet Metal" loading="lazy"><span>Welded Sheet Metal</span></div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-hero reverse">
+        <div class="mag-hero-img">
+            <img src="images/2-工用机械 Construction/Laser Cutting Part/8bb93dac8eb7c669b25f9c0bbb5a8640.jpg" alt="Laser Cutting Part" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Laser Cutting Part</h3>
+            <p>Laser-cut precision parts, burr-free edges</p>
+        </div>
+    </div>
+<div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Agricultural Machinery Parts / 农用机械零部件 (1/2)  —  Springs, Connectors & Controls</div>
+    <div class="mag-hero">
+        <div class="mag-hero-img">
+            <img src="images/3-农用机械 Agricultural/Spring/Spring A.jpg" alt="Spring A" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Spring A</h3>
+            <p>Precision coil springs, shot-peened & preset</p>
+        </div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-grid">
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring B.jpg" alt="Spring B" loading="lazy"><span>Spring B</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring C.jpg" alt="Spring C" loading="lazy"><span>Spring C</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring D.jpg" alt="Spring D" loading="lazy"><span>Spring D</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring E.jpg" alt="Spring E" loading="lazy"><span>Spring E</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring F.jpg" alt="Spring F" loading="lazy"><span>Spring F</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring G.jpg" alt="Spring G" loading="lazy"><span>Spring G</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring H.jpg" alt="Spring H" loading="lazy"><span>Spring H</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spring/Spring I.jpg" alt="Spring I" loading="lazy"><span>Spring I</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Connector/CONNECTOR.jpg" alt="Connector" loading="lazy"><span>Connector</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Cable End/Cable End.jpg" alt="Cable End" loading="lazy"><span>Cable End</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Clevis/Clevis.jpg" alt="Clevis" loading="lazy"><span>Clevis</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/HOOK/Hook.jpg" alt="Hook" loading="lazy"><span>Hook</span></div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-hero reverse">
+        <div class="mag-hero-img">
+            <img src="images/3-农用机械 Agricultural/Lever/Lever.jpg" alt="Lever" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Lever</h3>
+            <p>Control levers, ergonomic design, forged</p>
+        </div>
+    </div>
+<div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Agricultural Machinery Parts / 农用机械零部件 (2/2)  —  Shifts, Brackets & Supports</div>
+    <div class="mag-hero">
+        <div class="mag-hero-img">
+            <img src="images/3-农用机械 Agricultural/Shift Fork/Shift Fork A.jpg" alt="Shift Fork A" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Shift Fork A</h3>
+            <p>Transmission shift forks, induction hardened</p>
+        </div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-grid">
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Shift Fork/Shift Fork B.jpg" alt="Shift Fork B" loading="lazy"><span>Shift Fork B</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Shift Fork/Shift Fork C.jpg" alt="Shift Fork C" loading="lazy"><span>Shift Fork C</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Shift Fork/Shift Fork D.jpg" alt="Shift Fork D" loading="lazy"><span>Shift Fork D</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Shift Lever/Shift Lever.jpg" alt="Shift Lever" loading="lazy"><span>Shift Lever</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Spline Socket/Spline Socket.jpg" alt="Spline Socket" loading="lazy"><span>Spline Socket</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Shaft Bracket/Shaft Bracket.jpg" alt="Shaft Bracket" loading="lazy"><span>Shaft Bracket</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Idler Bracket/Idler Bracket.jpg" alt="Idler Bracket" loading="lazy"><span>Idler Bracket</span></div>
+        <div class="mag-card"><img src="images/3-农用机械 Agricultural/Support Base/Support Base.jpg" alt="Support Base" loading="lazy"><span>Support Base</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/接头/FITTING D.jpg" alt="Fitting D" loading="lazy"><span>Fitting D</span></div>
+        <div class="mag-card"><img src="images/1-船用 Marine/接头/FITTING E.jpg" alt="Fitting E" loading="lazy"><span>Fitting E</span></div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-hero reverse">
+        <div class="mag-hero-img">
+            <img src="images/1-船用 Marine/接头/FITTING F.jpg" alt="Fitting F" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Fitting F</h3>
+            <p>Custom hydraulic fittings, multi-standard compliant</p>
+        </div>
+    </div>
+<div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Industrial Equipment Parts / 工业设备零部件  —  Steering, Brake & Transmission</div>
+    <div class="mag-hero">
+        <div class="mag-hero-img">
+            <img src="images/4-工业设备 Industrial/Steering Column Assembly/Steering Column Assembly.jpg" alt="Steering Column Assy" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Steering Column Assy</h3>
+            <p>Steering column assemblies, forged & welded</p>
+        </div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-grid">
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/Steering Gear/Steering Gear A.jpg" alt="Steering Gear A" loading="lazy"><span>Steering Gear A</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/Steering Gear/Steering Gear B.jpg" alt="Steering Gear B" loading="lazy"><span>Steering Gear B</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/Power Steering/03f5e441f1ec1f2d182e43ad6659d3bd.jpg" alt="Power Steering" loading="lazy"><span>Power Steering</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/Brake Assy/97b904804a7122a81e8db6fbe1b42d62.jpg" alt="Brake Assembly" loading="lazy"><span>Brake Assembly</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/Brake Disc/Brake Disc.jpg" alt="Brake Disc" loading="lazy"><span>Brake Disc</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SHIFT/SHIFT A.jpg" alt="Shift A" loading="lazy"><span>Shift A</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SHIFT/SHIFT B.jpg" alt="Shift B" loading="lazy"><span>Shift B</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SHIFT/SHIFT C.jpg" alt="Shift C" loading="lazy"><span>Shift C</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SHIFT/SHIFT D.jpg" alt="Shift D" loading="lazy"><span>Shift D</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SHIFT/SHIFT E.jpg" alt="Shift E" loading="lazy"><span>Shift E</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SHIFT/SHIFT F.jpg" alt="Shift F" loading="lazy"><span>Shift F</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SUPPORT CYLINDER  WLDMT/SUPPORT CYLINDER  WLDMT A.jpg" alt="Support Cylinder A" loading="lazy"><span>Support Cylinder A</span></div>
+        <div class="mag-card"><img src="images/4-工业设备 Industrial/SUPPORT CYLINDER  WLDMT/SUPPORT CYLINDER  WLDMT B.jpg" alt="Support Cylinder B" loading="lazy"><span>Support Cylinder B</span></div>
+    </div>
+    <div class="mag-gap"></div>
+    <div class="mag-hero reverse">
+        <div class="mag-hero-img">
+            <img src="images/4-工业设备 Industrial/SUPPORT CYLINDER  WLDMT/SUPPORT CYLINDER  WLDMT C.jpg" alt="Support Cylinder C" loading="lazy">
+        </div>
+        <div class="mag-hero-text">
+            <h3>Support Cylinder C</h3>
+            <p>Support cylinders, honed bore, chrome-plated rod</p>
+        </div>
+    </div>
+<div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Inspection & Testing Equipment / 检测设备 (1/2)</div>
+    <div class="workshop-banner vertical">
+        <div class="banner-main">
+            <img src="images/检查设备/ZEISS蔡司三坐标检测仪 ZEISS Three-Coordinate Detector.jpg" alt="Inspection Equipment" loading="lazy">
+            <div class="banner-label">ZEISS CMM</div>
+        </div>
+        <div class="banner-thumbs">
+            <div class="banner-thumb active" data-src="images/检查设备/ZEISS蔡司三坐标检测仪 ZEISS Three-Coordinate Detector.jpg">
+                <img src="images/检查设备/ZEISS蔡司三坐标检测仪 ZEISS Three-Coordinate Detector.jpg" alt="ZEISS CMM" loading="lazy">
+                <span>ZEISS CMM</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/德国蔡司CONTURA G2三坐标测量机 Germany Zeiss CONTURA G2 coordinate measuring machine.jpg">
+                <img src="images/检查设备/德国蔡司CONTURA G2三坐标测量机 Germany Zeiss CONTURA G2 coordinate measuring machine.jpg" alt="ZEISS CONTURA G2 CMM" loading="lazy">
+                <span>ZEISS CONTURA G2 CMM</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/日本基恩士XM-5000手持式探针三坐标测量仪 Japan Keyence XM-5000 handheld probe coordinate measuring instrument.jpg">
+                <img src="images/检查设备/日本基恩士XM-5000手持式探针三坐标测量仪 Japan Keyence XM-5000 handheld probe coordinate measuring instrument.jpg" alt="Keyence XM-5000 CMM" loading="lazy">
+                <span>Keyence XM-5000 CMM</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/FOUNDRY-MASTER COMPACT台式直读光谱仪 FOUNDRY-MASTER COMPACT Desktop direct reading spectrometer.jpg">
+                <img src="images/检查设备/FOUNDRY-MASTER COMPACT台式直读光谱仪 FOUNDRY-MASTER COMPACT Desktop direct reading spectrometer.jpg" alt="Desktop Spectrometer" loading="lazy">
+                <span>Desktop Spectrometer</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/HT 5000 X-RAY检测设备 HT 5000 X-RAY Testing Equipment.jpg">
+                <img src="images/检查设备/HT 5000 X-RAY检测设备 HT 5000 X-RAY Testing Equipment.jpg" alt="X-RAY Testing Equipment" loading="lazy">
+                <span>X-RAY Testing Equipment</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/万能拉伸试验机 Universal tensile testing machine.jpg">
+                <img src="images/检查设备/万能拉伸试验机 Universal tensile testing machine.jpg" alt="Universal Tensile Testing Machine" loading="lazy">
+                <span>Universal Tensile Testing Machine</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/韩国HANDY MAGNA MP-A2L手提式磁粉探伤仪 Korea HANDY MAGNA MP-A2L Portable Magnetic Particle Detector.jpg">
+                <img src="images/检查设备/韩国HANDY MAGNA MP-A2L手提式磁粉探伤仪 Korea HANDY MAGNA MP-A2L Portable Magnetic Particle Detector.jpg" alt="Magnetic Particle Detector" loading="lazy">
+                <span>Magnetic Particle Detector</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/氢泄漏检测器 Sensistor Sentrac.jpg">
+                <img src="images/检查设备/氢泄漏检测器 Sensistor Sentrac.jpg" alt="Hydrogen Leak Detector" loading="lazy">
+                <span>Hydrogen Leak Detector</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page">
+    <div class="page-header">Inspection & Testing Equipment / 检测设备 (2/2)</div>
+    <div class="workshop-banner vertical">
+        <div class="banner-main">
+            <img src="images/检查设备/日本三丰品牌 mitutoyo SJ 201粗糙度仪Japan Mitutoyo mitutoyo SJ 201 roughness meter.jpg" alt="Inspection Equipment" loading="lazy">
+            <div class="banner-label">Mitutoyo Roughness Meter</div>
+        </div>
+        <div class="banner-thumbs">
+            <div class="banner-thumb active" data-src="images/检查设备/日本三丰品牌 mitutoyo SJ 201粗糙度仪Japan Mitutoyo mitutoyo SJ 201 roughness meter.jpg">
+                <img src="images/检查设备/日本三丰品牌 mitutoyo SJ 201粗糙度仪Japan Mitutoyo mitutoyo SJ 201 roughness meter.jpg" alt="Mitutoyo Roughness Meter" loading="lazy">
+                <span>Mitutoyo Roughness Meter</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/日本东京精密CONTOURECORD 1600G 轮廓仪 Japan Tokyo PrecisionCONTOURECORD 1600G profiler.jpg">
+                <img src="images/检查设备/日本东京精密CONTOURECORD 1600G 轮廓仪 Japan Tokyo PrecisionCONTOURECORD 1600G profiler.jpg" alt="Contour Measuring Profiler" loading="lazy">
+                <span>Contour Measuring Profiler</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/日本三丰品牌 mitutoyo HXF-903 径向跳动测试Japan mitutoyo HXF-903 radial runout test.jpg">
+                <img src="images/检查设备/日本三丰品牌 mitutoyo HXF-903 径向跳动测试Japan mitutoyo HXF-903 radial runout test.jpg" alt="Mitutoyo Radial Runout Test" loading="lazy">
+                <span>Mitutoyo Radial Runout Test</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/HR-150A手动洛氏硬度计 HR-150A Manual Rockwell hardness tester.jpg">
+                <img src="images/检查设备/HR-150A手动洛氏硬度计 HR-150A Manual Rockwell hardness tester.jpg" alt="Rockwell Hardness Tester" loading="lazy">
+                <span>Rockwell Hardness Tester</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/维氏硬度仪 Vickers Hardness Tester.jpg">
+                <img src="images/检查设备/维氏硬度仪 Vickers Hardness Tester.jpg" alt="Vickers Hardness Tester" loading="lazy">
+                <span>Vickers Hardness Tester</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/盐雾试验箱 Salt spray test chamber.jpg">
+                <img src="images/检查设备/盐雾试验箱 Salt spray test chamber.jpg" alt="Salt Spray Test Chamber" loading="lazy">
+                <span>Salt Spray Test Chamber</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/爆破试验台 Blasting test bench.jpg">
+                <img src="images/检查设备/爆破试验台 Blasting test bench.jpg" alt="Blasting Test Bench" loading="lazy">
+                <span>Blasting Test Bench</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/脉冲试验台 Impulse test bench.jpg">
+                <img src="images/检查设备/脉冲试验台 Impulse test bench.jpg" alt="Impulse Test Bench" loading="lazy">
+                <span>Impulse Test Bench</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/高低温试验箱 High and low temperature test chamber.jpg">
+                <img src="images/检查设备/高低温试验箱 High and low temperature test chamber.jpg" alt="High & Low Temp Test Chamber" loading="lazy">
+                <span>High &amp; Low Temp Test Chamber</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/气密测试台Airtight test bench.jpg">
+                <img src="images/检查设备/气密测试台Airtight test bench.jpg" alt="Airtight Test Bench" loading="lazy">
+                <span>Airtight Test Bench</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/SPC工作站 SPC Workstation.jpg">
+                <img src="images/检查设备/SPC工作站 SPC Workstation.jpg" alt="SPC Workstation" loading="lazy">
+                <span>SPC Workstation</span>
+            </div>
+            <div class="banner-thumb" data-src="images/检查设备/菲希尔 MPO涂层测厚仪 Fisher MPO coating thickness gauge.jpg">
+                <img src="images/检查设备/菲希尔 MPO涂层测厚仪 Fisher MPO coating thickness gauge.jpg" alt="Coating Thickness Gauge" loading="lazy">
+                <span>Coating Thickness Gauge</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<div class="page quality">
+    <div class="page-header">Outsourced Quality Management / 外协质量管理</div>
+    <div class="grid-4">
+        <div class="card">
+            <img src="images/外协质量管理/Heat Treatment Management.jpg" alt="Heat Treatment Process Management" loading="lazy">
+            <div class="card-label">Heat Treatment Process Management</div>
+        </div>
+        <div class="card">
+            <img src="images/外协质量管理/Raw Material Management.jpg" alt="Raw Material Quality Management" loading="lazy">
+            <div class="card-label">Raw Material Quality Management</div>
+        </div>
+    </div>
+    <div class="footer">Dk Precision Forging &amp; Machining &mdash; LukeCnDk@outlook.com</div>
+</div>
+
+<script>
+(function() {
+    document.querySelectorAll('.workshop-banner').forEach(function(banner) {
+        var mainImg = banner.querySelector('.banner-main img');
+        var labelEl = banner.querySelector('.banner-label');
+        var thumbs = banner.querySelectorAll('.banner-thumb');
+        thumbs.forEach(function(thumb) {
+            thumb.addEventListener('mouseenter', function() {
+                var src = this.getAttribute('data-src');
+                mainImg.style.opacity = '0';
+                setTimeout(function() {
+                    mainImg.src = src;
+                    mainImg.style.opacity = '1';
+                }, 150);
+                thumbs.forEach(function(t) { t.classList.remove('active'); });
+                this.classList.add('active');
+                if (labelEl) {
+                    labelEl.textContent = this.querySelector('span').textContent;
+                }
+            });
+        });
+    });
+})();
+/* hover preview */
+(function() {
+    var preview = document.createElement('div');
+    preview.className = 'img-preview';
+    preview.innerHTML = '<img src=""><div class="pv-label"></div>';
+    document.body.appendChild(preview);
+    var pvImg = preview.querySelector('img');
+    var pvLabel = preview.querySelector('.pv-label');
+    document.querySelectorAll('.mag-card, .mag-hero-img').forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+            var img = this.querySelector('img');
+            if (img) { pvImg.src = img.src; preview.style.display = 'block'; }
+            var label = this.querySelector('span') || this.parentElement.querySelector('h3');
+            if (label) { pvLabel.textContent = label.textContent; }
+        });
+        card.addEventListener('mousemove', function(e) {
+            var x = e.clientX + 18;
+            var y = e.clientY + 18;
+            if (x + 400 > window.innerWidth) x = e.clientX - 418;
+            if (y + 400 > window.innerHeight) y = e.clientY - 418;
+            preview.style.left = x + 'px';
+            preview.style.top = y + 'px';
+        });
+        card.addEventListener('mouseleave', function() {
+            preview.style.display = 'none';
+        });
+    });
+})();
+</script>
+</body>
+</html>
