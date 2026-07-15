@@ -385,7 +385,7 @@ body {
     overflow: hidden;
     border: 1px solid var(--border);
     background: var(--card-bg);
-    height: 40mm;
+    height: 48mm;
 }
 .mag-hero.reverse { flex-direction: row-reverse; }
 .mag-hero-img {
@@ -407,17 +407,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 14px 18px;
+    padding: 18px 22px;
 }
 .mag-hero-text h3 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--accent);
-    margin: 0 0 4px 0;
+    margin: 0 0 6px 0;
     letter-spacing: 0.5px;
 }
 .mag-hero-text p {
-    font-size: 8px;
+    font-size: 9px;
     color: var(--text);
     opacity: 0.6;
     margin: 0;
@@ -426,7 +426,7 @@ body {
 .mag-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
+    gap: 8px;
 }
 .mag-card {
     border-radius: 3px;
@@ -437,7 +437,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 28mm;
+    height: 34mm;
 }
 .mag-card img {
     width: 100%;
@@ -452,12 +452,12 @@ body {
     bottom: 0; left: 0; right: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
     color: #fff;
-    font-size: 7px;
-    padding: 5px 4px 3px;
+    font-size: 10px;
+    padding: 7px 6px 5px;
     text-align: center;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
 }
-.mag-gap { height: 5px; }
+.mag-gap { height: 10px; }
 /* hover preview */
 .img-preview {
     position: fixed;
@@ -545,10 +545,11 @@ body {
   .mag-hero.reverse { flex-direction: column-reverse; }
   .mag-hero-img { flex: none; height: 55vw; min-height: 200px; max-height: 380px; }
   .mag-hero-text { flex: none; padding: 10px; }
-  .mag-hero-text h3 { font-size: 16px; }
-  .mag-hero-text p { font-size: 12px; }
-  .mag-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
-  .mag-card img { height: 28vw; min-height: 80px; }
+  .mag-hero-text h3 { font-size: 15px; }
+  .mag-hero-text p { font-size: 11px; }
+  .mag-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .mag-card { height: auto; }
+  .mag-card img { height: 28vw; min-height: 90px; }
   /* Spec cards */
   .spec-img { max-height: 200px; }
   .spec-body { padding: 8px 10px; }
@@ -572,7 +573,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   .equip-others { grid-template-columns: repeat(2, 1fr); }
-  .mag-grid { grid-template-columns: repeat(2, 1fr); }
+  .mag-grid { grid-template-columns: repeat(2, 1fr); gap: 5px; }
+  .mag-card img { min-height: 80px; }
   .page-header { font-size: 12px; }
   .page { padding: 10mm 5mm 8mm 5mm; }
   .workshop-banner.vertical .banner-thumb { width: 24mm; min-width: 20mm; }
