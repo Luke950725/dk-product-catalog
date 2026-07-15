@@ -19,7 +19,7 @@
 .cover::before { content: ''; position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 60%); }
 .cover h1 { font-size: 100px; letter-spacing: 14px; color: #ffffff; font-weight: 200; position: relative; z-index: 1; }
 .cover .subtitle { color: #94a3b8; font-size: 13px; margin-top: 24px; letter-spacing: 5px; position: relative; z-index: 1; }
-.cover .email { color: #c9a84c; font-size: 14px; margin-top: 36px; letter-spacing: 3px; position: relative; z-index: 1; }
+.cover .email { color: #c9a84c; font-size: 14px; letter-spacing: 3px; position: relative; z-index: 1; }
 .c-line { width: 40px; height: 1px; background: #c9a84c; margin: 28px auto; position: relative; z-index: 1; }
 .page { padding: 22mm 20mm 20mm 20mm; }
 .page-header { font-size: 14px; font-weight: 400; letter-spacing: 3px; color: #1a3c5e; border-bottom: 2px solid #c9a84c; padding-bottom: 10px; margin-bottom: 18px; }
@@ -56,7 +56,7 @@ body {
 .cover {
     width: 210mm; height: 297mm;
     display: flex; flex-direction: column;
-    justify-content: flex-start; align-items: center; padding-top: 80px;
+    justify-content: flex-start; align-items: center; padding-top: 200px;
     page-break-after: always;
     margin: 0 auto;
 }
@@ -65,6 +65,8 @@ body {
 .cover .email { font-weight: 400; letter-spacing: 2px; }
 .cover .tagline { color: #94a3b8; font-size: 15px; margin-top: 200px; letter-spacing: 1px; position: relative; z-index: 1; font-style: italic; }
 .c-line { width: 80px; height: 3px; background: var(--accent2); margin: 25px auto; }
+.email-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 36px; position: relative; z-index: 1; }
+.email-divider { width: 1px; height: 18px; background: var(--accent2); }
 
 /* === PAGE === */
 .page {
@@ -493,8 +495,11 @@ body {
     <h1>Dk</h1>
     <div class="c-line"></div>
     <div class="subtitle">Precision Forging &amp; Machining</div>
-    <div class="email">LukeCnDk@outlook.com</div>
-    <div class="email" style="margin-top:8px;">MeloCnDk@outlook.com</div>
+    <div class="email-row">
+        <span class="email">LukeCnDk@outlook.com</span>
+        <span class="email-divider"></span>
+        <span class="email">MeloCnDk@outlook.com</span>
+    </div>
     <div class="tagline">Provide the most time-saving and hassle-free procurement services.</div>
 </div>
 
